@@ -1,36 +1,97 @@
 // Testimonial.js
 import React from 'react';
-import { FiStar, FiCheckCircle } from 'react-icons/fi';
 import './Testimonial.css';
+import Carousel from '../SlideUp/Carousel';
+import CurveDental from '../../assets/ScrollLogos/Curve Dental.svg';
+import Denticon from '../../assets/ScrollLogos/Denticon Logo.svg';
+import Eaglesoft from '../../assets/ScrollLogos/Eaglesoft Logo.png';
+import Dentrix from '../../assets/ScrollLogos/Dentrix Logo.svg';
+import Fuse from '../../assets/ScrollLogos/Fuse Dental.svg';
+import OpenDental from '../../assets/ScrollLogos/Open Dental Logo.png';
+
+
+const imageLogos = [
+  { src: CurveDental, alt: "Curve Dental"},
+  { src: Denticon, alt: "Curve Dental"},
+  { src: Eaglesoft, alt: "Curve Dental"},
+  { src: Dentrix, alt: "Curve Dental"},
+  { src: Fuse, alt: "Curve Dental"},
+  { src: OpenDental, alt: "Curve Dental"},
+];
+
+const useResponsiveCarousel = () => {
+  const [dimensions, setDimensions] = React.useState({
+    width: 600,
+    height: 400
+  });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      
+      if (windowWidth < 420){
+        // Smallest screens
+        setDimensions({
+          width: 300,
+          height: 400
+        });
+      } else if (windowWidth < 520) {
+        // Smallest screens
+        setDimensions({
+          width: 400,
+          height: 400
+        });
+      } else if (windowWidth < 640) {
+        // Medium small screens
+        setDimensions({
+          width: 500,
+          height: 400
+        });
+      } else {
+        // Larger screens
+        setDimensions({
+          width: 600,
+          height: 400
+        });
+      }
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return dimensions;
+};
 
 const Testimonial = () => {
+
+  const { width, height } = useResponsiveCarousel();
+
   return (
     <section className="testimonial-section">
       <div className="testimonial-container">
-        <h2 className="section-title">
+        <h2 className="section-title PJTitle">
           Elite Practices Are Already Winning with OmniDent
         </h2>
-        <p className="section-subtitle">
+        <p className="section-subtitle PJSubtitle">
           Join 300+ forward-thinking teams transforming how they engage patients.
         </p>
         
         <div className="quote-container">
-          <div className="quote-mark-left">"</div>
           <div className="quote-content">
-            <div className="stars-container">
-              {[...Array(5)].map((_, i) => (
-                <FiStar key={i} className="star-icon" />
-              ))}
-            </div>
-            <p className="quote-text">
-              "In just 3 months, our bookings grew 60%. Patients get answers instantly, and my staff finally has breathing room instead of being stuck on the phone."
-            </p>
-            <div className="quote-author">
-              <div className="author-name">Dr. Sarah Martinez</div>
-              <div className="author-title">Martinez Family Dentistry</div>
+            <div style={{ height: '400px', position: 'relative' }}>
+              <Carousel
+                baseWidth={width}
+                baseHeight={height}
+                autoplay={true}
+                autoplayDelay={2500}
+                pauseOnHover={true}
+                loop={true}
+                round={false}
+              />
             </div>
           </div>
-          <div className="quote-mark-right">"</div>
         </div>
         
         <div className="integrations-container">
@@ -38,12 +99,6 @@ const Testimonial = () => {
           <p className="integrations-subtitle">Connect with 50+ practice management systems in under 15 minutes. No technical expertise required.</p>
           
           <div className="integrations-logos">
-            <div className="integration-logo">curve</div>
-            <div className="integration-logo">eaglesoft</div>
-            <div className="integration-logo">opendental</div>
-            <div className="integration-logo">FUSE</div>
-            <div className="integration-logo">DENTRIX</div>
-            <div className="integration-logo">denticon</div>
           </div>
         </div>
 

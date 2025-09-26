@@ -14,15 +14,9 @@
 .quote-container {
   position: relative;
   margin: 4rem 0;
-}
-
-.quote-mark-left,
-.quote-mark-right {
-  font-size: 200px;
-  font-family: serif;
-  color: rgba(107, 114, 128, 0.2);
-  position: absolute;
-  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
@@ -30,17 +24,6 @@
   .quote-mark-right {
     font-size: 300px;
   }
-}
-
-.quote-mark-left {
-  top: -5rem;
-  left: 0;
-}
-
-.quote-mark-right {
-  bottom: -5rem;
-  right: 0;
-  transform: rotate(180deg);
 }
 
 .quote-content {
@@ -91,16 +74,21 @@
 
 .integrations-container {
   margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .integrations-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 1rem;
 }
 
 .integrations-subtitle {
+  font-weight: 800;
   color: #cbd5e0;
+  width: 550px;
   margin-bottom: 3rem;
 }
 
@@ -189,12 +177,21 @@
 }
 
 @media (max-width: 640px) {
-  .quote-mark-left,
-  .quote-mark-right {
-    font-size: 150px;
-  }
-  
   .integrations-logos {
     gap: 1.5rem;
   }
+  .integrations-subtitle{
+    width: 80%;
+  }
+}
+
+.PJTitle{
+  text-align: center;
+  font-size: 3rem;
+  margin-top: -5rem;
+}
+.PJSubtitle{
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
