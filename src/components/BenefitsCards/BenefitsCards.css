@@ -1,0 +1,81 @@
+/* BenefitsCards.css */
+.benefits-cards-section {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.cards-stack-container {
+  position: relative;
+  height: 800px;
+}
+
+.stacked-card {
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  max-width: 42rem;
+  transition: all 0.7s ease-out;
+}
+
+.card-1 {
+  top: 0;
+}
+
+.card-2 {
+  top: 8rem;
+}
+
+.card-3 {
+  top: 16rem;
+}
+
+.benefit-card {
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  transition: all 0.3s;
+}
+
+.benefit-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  transform: scale(1.02);
+}
+
+.gradient-cyan {
+  background: linear-gradient(135deg, #2a3f5f, #1e2a3a);
+}
+
+.gradient-teal {
+  background: linear-gradient(135deg, #3a4f6f, #2e3a4a);
+}
+
+.gradient-indigo {
+  background: linear-gradient(135deg, #4a5f7f, #3e4a5a);
+}
+
+.benefit-number {
+  font-size: 3.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #06b6d4;
+}
+
+.gradient-teal .benefit-number {
+  color: #14b8a6;
+}
+
+.gradient-indigo .benefit-number {
+  color: #818cf8;
+}
+
+.benefit-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.benefit-description {
+  font-size: 1.25rem;
+  color: #cbd5e0;
+}

@@ -1,0 +1,28 @@
+/* Footer.css */
+.footer {
+  padding: 3rem 0;
+  border-top: 1px solid #374151;
+}
+
+.footer-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.footer-copyright {
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.footer-contact {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 1536px) {
+  .footer-container {
+    max-width: 96rem;
+  }
+}

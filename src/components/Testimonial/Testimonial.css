@@ -1,0 +1,200 @@
+/* Testimonial.css */
+.testimonial-section {
+  padding: 6rem 0;
+  background-color: #1e2a3a;
+}
+
+.testimonial-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.quote-container {
+  position: relative;
+  margin: 4rem 0;
+}
+
+.quote-mark-left,
+.quote-mark-right {
+  font-size: 200px;
+  font-family: serif;
+  color: rgba(107, 114, 128, 0.2);
+  position: absolute;
+  user-select: none;
+}
+
+@media (min-width: 1024px) {
+  .quote-mark-left,
+  .quote-mark-right {
+    font-size: 300px;
+  }
+}
+
+.quote-mark-left {
+  top: -5rem;
+  left: 0;
+}
+
+.quote-mark-right {
+  bottom: -5rem;
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.quote-content {
+  position: relative;
+  z-index: 10;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.star-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fbbf24;
+  fill: currentColor;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+  .quote-text {
+    font-size: 1.875rem;
+  }
+}
+
+.quote-author {
+  font-size: 1.125rem;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #06b6d4;
+}
+
+.author-title {
+  color: #9ca3af;
+}
+
+.integrations-container {
+  margin-top: 6rem;
+}
+
+.integrations-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.integrations-subtitle {
+  color: #cbd5e0;
+  margin-bottom: 3rem;
+}
+
+.integrations-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  opacity: 0.7;
+}
+
+.integration-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.integration-logo:hover {
+  color: #06b6d4;
+}
+
+.testimonial-cta-box {
+  margin-top: 4rem;
+  background: linear-gradient(to right, #2a3f5f, #1e2a3a);
+  border-radius: 1rem;
+  padding: 3rem;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.cta-box-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cta-box-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e0;
+  margin-bottom: 2rem;
+}
+
+.cta-box-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .cta-box-buttons {
+    flex-direction: row;
+  }
+}
+
+.cta-primary-btn {
+  padding: 0.75rem 2rem;
+  background-color: #1a2332;
+  color: #06b6d4;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid #06b6d4;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cta-primary-btn:hover {
+  background-color: #06b6d4;
+  color: #1a2332;
+}
+
+.cta-secondary-btn {
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cta-secondary-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .quote-mark-left,
+  .quote-mark-right {
+    font-size: 150px;
+  }
+  
+  .integrations-logos {
+    gap: 1.5rem;
+  }
+}
