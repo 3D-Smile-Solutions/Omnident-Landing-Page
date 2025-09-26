@@ -12,11 +12,12 @@
   background-color: #1a2332;
   color: white;
   overflow-x: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 /* ========== Global Typography ========== */
 .section-title {
+  font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -24,6 +25,7 @@
 }
 
 .section-subtitle {
+  font-family: 'Urbanist', sans-serif;
   font-size: 1.25rem;
   color: #cbd5e0;
   max-width: 48rem;
@@ -32,6 +34,16 @@
 
 .center-text {
   text-align: center;
+}
+
+/* Ensure all headings use Poppins */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Ensure all body text, paragraphs, and other elements use Urbanist */
+p, span, a, li, button, input, textarea, label, div {
+  font-family: 'Urbanist', sans-serif;
 }
 
 @media (min-width: 1024px) {

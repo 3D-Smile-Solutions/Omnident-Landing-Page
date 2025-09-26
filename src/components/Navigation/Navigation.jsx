@@ -1,55 +1,32 @@
 import React from 'react';
+import PillNav from './PillNav';
+import logo from '../../assets/Logo.png';
 import './Navigation.css';
 
 const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
-  const navItems = ['Features', 'Patient Journey', 'Platform', 'Results', 'Pricing', 'SmileNexus'];
 
   return (
-    <nav className="nav-container">
-      <div className="nav-inner">
-        <div className="nav-content">
-          {/* Logo */}
-          <div className="logo-container">
-            <div className="logo-shape-1"></div>
-            <div className="logo-shape-2"></div>
-            <span className="logo-text">
-              <span className="logo-text-white">OmniDent</span>
-              <span className="logo-text-cyan"> AI</span>
-            </span>
-          </div>
-
-          {/* Desktop Navigation */}
-          <div className="desktop-nav">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="nav-link"
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-
-          {/* Book Demo Button */}
-          <button className="book-demo-btn desktop-only">
-            Book Demo
-          </button>
-
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="mobile-menu-btn"
-          >
-            <div className="hamburger-container">
-              <div className={`hamburger-line ${isMenuOpen ? 'line-1-active' : ''}`}></div>
-              <div className={`hamburger-line ${isMenuOpen ? 'line-2-active' : ''}`}></div>
-              <div className={`hamburger-line ${isMenuOpen ? 'line-3-active' : ''}`}></div>
-            </div>
-          </button>
-        </div>
-      </div>
-    </nav>
+    <div className='Navigation'>
+      <PillNav
+        logo={logo}
+        logoAlt="Company Logo"
+        items={[
+          { label: 'Features', href: '/Features' },
+          { label: 'Patient Journey', href: '/Patient Journey' },
+          { label: 'Platform', href: '/Platform' },
+          { label: 'Results', href: '/Results' },
+          { label: 'Pricing', href: '/Pricing' },
+          { label: 'SmileNexus', href: '/SmileNexus' },
+        ]}
+        activeHref="/"
+        className="custom-nav"
+        ease="power2.easeOut"
+        baseColor="#000000ff"
+        pillColor="#2c3c53ff"
+        hoveredPillTextColor="#ffffff"
+        pillTextColor="#ccccccff"
+      />
+    </div>
   );
 };
 

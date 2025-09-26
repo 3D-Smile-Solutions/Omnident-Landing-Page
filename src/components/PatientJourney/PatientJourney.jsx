@@ -1,22 +1,24 @@
 // PatientJourney.js
 import React from 'react';
 import './PatientJourney.css';
+import PatientJourneyAnimation from '../../assets/PatientJourneyAnimation.mp4';
+import AnimatedContent from '../SlideUp/AnimatedContent';
 
 const PatientJourney = () => {
   return (
     <section className="patient-journey-section">
       <div className="section-container">
-        <h2 className="section-title">
+        <h2 className="section-title PJTitle">
           The Patient Journey, Simplified with OmniDent.ai
         </h2>
-        <p className="section-subtitle">
+        <p className="section-subtitle PJSubtitle">
           OmniDent AI turns first inquiries into lasting relationships boosting bookings,<br />
           reducing no shows, and building lifetime loyalty.
         </p>
         
         <div className="animation-placeholder">
           <div className="animation-placeholder-content">
-            <span className="placeholder-text">ANIMATION HERE</span>
+            <video src={PatientJourneyAnimation} autoPlay muted loop></video>
           </div>
         </div>
         
