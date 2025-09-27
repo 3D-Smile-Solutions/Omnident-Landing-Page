@@ -23,7 +23,11 @@
   border: 1px solid #4b5563;
   transition: all 0.3s;
 }
-
+.features-flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .feature-card:hover {
   border-color: rgba(6, 182, 212, 0.4);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);

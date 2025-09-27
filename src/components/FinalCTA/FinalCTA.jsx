@@ -33,57 +33,18 @@ const FinalCTA = () => {
           </p>
           
           <div className="calendar-widget">
-            <div className="calendar-content">
-              <div className="calendar-info">
-                <h4 className="calendar-meeting-title">OmniDent Discovery</h4>
-                <p className="calendar-meeting-description">
-                  By the end of this call you will know exactly what OmniDent.ai is and how it will transform the way you run your practice forever.
-                </p>
-                <div className="calendar-details">
-                  <div className="calendar-detail">
-                    <FiClock className="detail-icon" />
-                    <span>30m - 45m</span>
-                  </div>
-                  <div className="calendar-detail">
-                    <FiPhone className="detail-icon" />
-                    <span>Google Meet</span>
-                  </div>
-                  <div className="calendar-detail">
-                    <FiCalendar className="detail-icon" />
-                    <span>Asia/Karachi</span>
-                  </div>
-                </div>
-              </div>
-              <div className="calendar-picker">
-                <div className="calendar-header">
-                  <div className="calendar-month">September 2025</div>
-                  <div className="calendar-days">
-                    {calendarDays.map((day) => (
-                      <div key={day} className="calendar-day-label">{day}</div>
-                    ))}
-                    {[...Array(30)].map((_, i) => (
-                      <div 
-                        key={i} 
-                        className={`calendar-day ${i === 16 ? 'selected' : ''}`}
-                      >
-                        {i + 1}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="time-slots">
-                  <div className="slots-label">Available Times:</div>
-                  {timeSlots.map((time) => (
-                    <button 
-                      key={time}
-                      className="time-slot"
-                    >
-                      {time}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <iframe 
+              class="cal-embed" 
+              name="cal-embed=omnident-discovery" 
+              title="Book a call" 
+              data-cal-link="omnident.ai/omnident-discovery" 
+              allow="payment" 
+              src="https://app.cal.com/omnident.ai/omnident-discovery/embed?embed=omnident-discovery&layout=month_view&theme=dark&embedType=inline&overlayCalendar=true" 
+              style={{
+                height: '555px',
+                width: '100%',
+              }}
+            ></iframe>
           </div>
         </div>
       </div>
