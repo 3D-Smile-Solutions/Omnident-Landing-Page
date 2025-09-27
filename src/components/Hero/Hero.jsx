@@ -1,15 +1,31 @@
 // Hero.js
 import React from 'react';
-import { FiCheckCircle } from 'react-icons/fi';
+import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import heroVideo from '../../assets/HeroBgAnimation.mp4'; // Ensure you have a video file in the specified path
 import './Hero.css';
 
 const Hero = () => {
   return (
     <section className="hero-section">
-      <div className="hero-bg-effect-1"></div>
-      <div className="hero-bg-effect-2"></div>
+      {/* Full screen background video */}
+      <div className="hero-video-bg">
+        <div className="video-overlay"></div>
+        <video 
+          className="hero-video"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          poster="/path-to-poster-image.jpg"
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback image */}
+          <img src="/path-to-fallback-image.jpg" alt="OmniDent AI Dashboard" />
+        </video>
+      </div>
       
-      <div className="hero-container-full">
+      {/* Content on top of video */}
+      <div className="hero-container">
         <div className="hero-content">
           <h1 className="hero-title">
             Pioneer The Future<br />
@@ -17,7 +33,8 @@ const Hero = () => {
             Engagement
           </h1>
           <p className="hero-subtitle">
-            OmniDent AI turns your traffic into new patient appointments, without lifting your finger.
+            OmniDent AI turns your traffic into new patient appointments, 
+            without lifting your finger.
           </p>
           <div className="hero-cta-container">
             <button className="hero-cta-btn">
@@ -38,14 +55,6 @@ const Hero = () => {
               <span>30-day money back guarantee</span>
             </span>
           </div>
-        </div>
-        <div className="hero-image-container">
-          <div className="hero-image-placeholder">
-            <div className="image-placeholder-content">
-              <span>Hero Image</span>
-            </div>
-          </div>
-          <div className="hero-image-overlay"></div>
         </div>
       </div>
     </section>

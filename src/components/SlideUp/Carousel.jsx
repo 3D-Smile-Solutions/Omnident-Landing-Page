@@ -33,7 +33,7 @@ const DEFAULT_ITEMS = [
   },
   {
     title: 'Dr. James Wilson',
-    description: '"This has been our best investment. Patient satisfaction is higher, staff stress is lower, and we’re booking 3x more consultations than before."',
+    description: '"This has been our best investment. Patient satisfaction is higher, staff stress is lower, and were booking 3x more consultations than before."',
     id: 3,
     icon: (
       <div className="stars-container">
@@ -57,8 +57,6 @@ const DEFAULT_ITEMS = [
   },
 ];
 
-const DRAG_BUFFER = 0;
-const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: 'spring', stiffness: 300, damping: 30 };
 
@@ -84,6 +82,7 @@ export default function Carousel({
   const [isResetting, setIsResetting] = useState(false);
 
   const containerRef = useRef(null);
+  
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -117,48 +116,14 @@ export default function Carousel({
 
   const effectiveTransition = isResetting ? { duration: 0 } : SPRING_OPTIONS;
 
-    const handleAnimationComplete = () => {
-        if (loop && currentIndex === items.length) { // Changed from carouselItems.length - 1
-            setIsResetting(true);
-            x.set(0);
-            setCurrentIndex(0);
-            setTimeout(() => setIsResetting(false), 50);
-        }
-    };
-
-  const handleDragEnd = (_, info) => {
-        const offset = info.offset.x;
-        const velocity = info.velocity.x;
-        
-        // Dragging left (going to next item)
-        if (offset < -DRAG_BUFFER || velocity < -VELOCITY_THRESHOLD) {
-            if (loop && currentIndex === items.length - 1) {
-            // This should trigger the loop animation
-            setCurrentIndex(items.length); // Go to the duplicate item first
-            } else if (currentIndex < carouselItems.length - 1) {
-            setCurrentIndex(prev => prev + 1);
-            }
-        } 
-        // Dragging right (going to previous item)
-        else if (offset > DRAG_BUFFER || velocity > VELOCITY_THRESHOLD) {
-            if (loop && currentIndex === 0) {
-            // Can't go back from first item in loop mode
-            // You might want to implement going to last item here
-            setCurrentIndex(items.length - 1);
-            } else {
-            setCurrentIndex(prev => Math.max(prev - 1, 0));
-            }
-        }
-    };
-
-  const dragProps = loop
-    ? {}
-    : {
-        dragConstraints: {
-          left: -trackItemOffset * (carouselItems.length - 1),
-          right: 0
-        }
-      };
+  const handleAnimationComplete = () => {
+    if (loop && currentIndex === items.length) { // Changed from carouselItems.length - 1
+      setIsResetting(true);
+      x.set(0);
+      setCurrentIndex(0);
+      setTimeout(() => setIsResetting(false), 50);
+    }
+  };
 
   return (
     <div
@@ -172,8 +137,6 @@ export default function Carousel({
     > 
       <motion.div
         className="carousel-track"
-        drag="x"
-        {...dragProps}
         style={{
           width: itemWidth,
           height: itemHeight, // Add height to track
@@ -182,7 +145,6 @@ export default function Carousel({
           perspectiveOrigin: `${currentIndex * trackItemOffset + itemWidth / 2}px 50%`,
           x
         }}
-        onDragEnd={handleDragEnd}
         animate={{ x: -(currentIndex * trackItemOffset) }}
         transition={effectiveTransition}
         onAnimationComplete={handleAnimationComplete}

@@ -2,9 +2,12 @@
 .patient-journey-section {
   padding: 6rem 0;
   position: relative;
+  background: linear-gradient(0deg, #123646 0%, #0A0F1C 100%);
+
 }
 
 .animation-placeholder {
+  margin-top: 1rem;
   border-radius: 1rem;
   backdrop-filter: blur(4px);
   margin-bottom: 4rem;

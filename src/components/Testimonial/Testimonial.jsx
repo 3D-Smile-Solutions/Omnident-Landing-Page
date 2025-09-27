@@ -85,7 +85,7 @@ const Testimonial = () => {
                 baseWidth={width}
                 baseHeight={height}
                 autoplay={true}
-                autoplayDelay={2500}
+                autoplayDelay={2000}
                 pauseOnHover={true}
                 loop={true}
                 round={false}

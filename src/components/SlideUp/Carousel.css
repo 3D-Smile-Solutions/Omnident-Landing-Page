@@ -21,14 +21,11 @@
   justify-content: space-between;
   border: 1px solid #555;
   border-radius: calc(var(--outer-r) - var(--p-distance));
-  background: linear-gradient( #0D1117, #123646);
+  background: linear-gradient(135deg, rgba(42, 63, 95, 0.3), rgba(30, 42, 58, 0.3));
+
   overflow: hidden;
-  cursor: grab;
 }
 
-.carousel-item:active {
-  cursor: grabbing;
-}
 
 .carousel-container.round {
   border: 1px solid #555;
@@ -123,7 +120,6 @@
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  cursor: pointer;
   transition: background-color 150ms;
 }
 

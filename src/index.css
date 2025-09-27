@@ -180,3 +180,83 @@ p, span, a, li, button, input, textarea, label, div {
     font-size: 4rem;
   }
 }
+
+/* Add to your App.css or index.css */
+
+/* Reset for proper layering */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #0a0015; /* Dark base color */
+}
+
+/* Ensure proper stacking context */
+#root {
+  position: relative;
+  z-index: 0;
+  min-height: 100vh;
+}
+
+/* Alternative subtle implementation - Choose this OR the above */
+/* This version makes the rays more subtle and atmospheric */
+.global-lightrays-wrapper.subtle {
+  position: fixed;
+  top: -50vh; /* Start above viewport for better fade effect */
+  left: -50vw; /* Extend beyond viewport */
+  width: 200vw; /* Double width for edge coverage */
+  height: 200vh; /* Double height for edge coverage */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3; /* Very subtle */
+  
+  /* Gradient mask to fade edges */
+  mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 40%,
+    rgba(0, 0, 0, 0.3) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Performance mode for slower devices */
+@supports (backdrop-filter: blur(1px)) {
+  .global-lightrays-wrapper {
+    /* Use GPU acceleration when available */
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Disable animation on reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .global-lightrays-wrapper {
+    display: none;
+  }
+  
+  /* Show static gradient fallback */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at top center,
+      rgba(6, 182, 212, 0.1) 0%,
+      rgba(139, 92, 246, 0.05) 40%,
+      transparent 70%
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+}

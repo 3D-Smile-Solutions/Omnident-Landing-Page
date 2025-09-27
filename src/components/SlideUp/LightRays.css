@@ -1,0 +1,98 @@
+/* LightRays.css - Global Background Styles */
+
+/* Global wrapper for the light rays effect */
+.global-lightrays-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0; /* Behind all content */
+  pointer-events: none; /* Allows clicking through to content */
+  overflow: hidden;
+  
+  /* Optional: Add a dark gradient overlay to blend with your theme */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 21, 0.95) 0%,
+    rgba(10, 0, 21, 0.8) 50%,
+    rgba(10, 0, 21, 0.95) 100%
+  );
+}
+
+/* The light rays container itself */
+.light-rays-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.6; /* Adjust this to control the overall intensity */
+  mix-blend-mode: screen; /* Creates a nice glow effect */
+}
+
+/* Make sure your main content is above the light rays */
+.omnident-container {
+  position: relative;
+  z-index: 1; /* Above the light rays */
+  background: transparent; /* Or use a semi-transparent background if needed */
+  min-height: 100vh;
+}
+
+/* Optional: Add specific opacity/blend modes for different sections */
+.omnident-container > section {
+  position: relative;
+  z-index: 2;
+  /* Optional: Add a subtle dark overlay to improve readability */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 0, 21, 0.3) 0%,
+    rgba(10, 0, 21, 0.1) 100%
+  );
+  backdrop-filter: blur(0.5px); /* Very subtle blur for depth */
+}
+
+/* Ensure navigation stays on top */
+.navigation {
+  position: relative;
+  z-index: 100;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .light-rays-container {
+    opacity: 0.4; /* Lighter on mobile for better performance */
+  }
+}
+
+/* Performance optimization for low-end devices */
+@media (max-width: 640px) and (hover: none) {
+  .global-lightrays-wrapper {
+    /* Fallback to static gradient on touch devices for better performance */
+    background: linear-gradient(
+      180deg,
+      rgba(10, 0, 21, 1) 0%,
+      rgba(26, 15, 46, 0.95) 30%,
+      rgba(10, 0, 21, 1) 100%
+    );
+  }
+  
+  .light-rays-container {
+    opacity: 0.3;
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark) {
+  .light-rays-container {
+    opacity: 0.7;
+  }
+}
+
+/* Optional: Parallax effect on scroll */
+.global-lightrays-wrapper.parallax {
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}

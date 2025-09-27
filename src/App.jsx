@@ -10,23 +10,27 @@ import Features from './components/Features/Features';
 import Pricing from './components/Pricing/Pricing';
 import FinalCTA from './components/FinalCTA/FinalCTA';
 import Footer from './components/Footer/Footer';
+import LightRays from './components/SlideUp/LightRays';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="omnident-container">
-      <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <Hero />
-      <PatientJourney />
-      <Testimonial />
-      <BenefitsCards />
-      <Channels />
-      <Features />
-      <Pricing />
-      <FinalCTA />
-      <Footer />
-    </div>
+    <>
+      {/* Main App Content */}
+      <div className="omnident-container">
+        <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <Hero />
+        <PatientJourney />
+        <Testimonial />
+        <BenefitsCards />
+        <Channels />
+        <Features />
+        <Pricing />
+        <FinalCTA />
+        <Footer />
+      </div>
+    </>
   );
 };
 

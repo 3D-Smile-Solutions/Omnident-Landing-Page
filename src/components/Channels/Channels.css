@@ -1,7 +1,8 @@
 /* Channels.css */
 .channels-section {
   padding: 6rem 0;
-  background-color: #1e2a3a;
+  background: linear-gradient(180deg, #123646 0%, #0A0F1C 100%);
+
 }
 
 .channels-grid {

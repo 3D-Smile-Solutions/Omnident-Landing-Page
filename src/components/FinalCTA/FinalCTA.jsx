@@ -1,50 +1,130 @@
 // FinalCTA.js
-import React from 'react';
-import { FiClock, FiPhone, FiCalendar } from 'react-icons/fi';
+import React, { useEffect } from 'react';
+import { FiClock, FiPhone, FiCalendar, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 import './FinalCTA.css';
 
 const FinalCTA = () => {
-  const calendarDays = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  const timeSlots = ['12:00am', '1:30am', '2:00am', '2:30am', '3:00am'];
+  useEffect(() => {
+    // Load and initialize Cal.com embed
+    (function (C, A, L) { 
+      let p = function (a, ar) { a.q.push(ar); }; 
+      let d = C.document; 
+      C.Cal = C.Cal || function () { 
+        let cal = C.Cal; 
+        let ar = arguments; 
+        if (!cal.loaded) { 
+          cal.ns = {}; 
+          cal.q = cal.q || []; 
+          d.head.appendChild(d.createElement("script")).src = A; 
+          cal.loaded = true; 
+        } 
+        if (ar[0] === L) { 
+          const api = function () { p(api, arguments); }; 
+          const namespace = ar[1]; 
+          api.q = api.q || []; 
+          if(typeof namespace === "string"){
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar); 
+          return;
+        } 
+        p(cal, ar); 
+      }; 
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+    
+    // Initialize Cal.com
+    window.Cal("init", "omnident-discovery", {origin:"https://app.cal.com"});
+
+    // Configure inline embed
+    window.Cal.ns["omnident-discovery"]("inline", {
+      elementOrSelector:"#my-cal-inline-omnident-discovery",
+      config: {"layout":"month_view","theme":"dark"},
+      calLink: "omnident.ai/omnident-discovery",
+    });
+
+    // Configure UI settings
+    window.Cal.ns["omnident-discovery"]("ui", {
+      "theme":"dark",
+      "hideEventTypeDetails":false,
+      "layout":"month_view"
+    });
+
+    // Cleanup function
+    return () => {
+      const calElement = document.getElementById('my-cal-inline-omnident-discovery');
+      if (calElement) {
+        calElement.innerHTML = '';
+      }
+    };
+  }, []);
 
   return (
     <section className="final-cta-section">
       <div className="final-cta-container">
+        <div className="cta-header">
+          <span className="cta-badge">
+            🚀 Limited Time Offer • Book Now
+          </span>
+        </div>
+
         <h2 className="section-title center-text">
-          Your Competitors Are<br />Already Using AI
+          Your Competitors Are
+          <span className="gradient-text"> Already Using AI</span>
         </h2>
         <p className="section-subtitle center-text">
-          Every day without OmniDent.ai means lost patients and revenue.<br />
-          Transform your practice today.
+          Every day without OmniDent.ai means lost patients and revenue.
+          <br />Transform your practice today.
         </p>
         
-        <button className="final-cta-btn">
+        <button className="primary-cta-btn hero-btn">
           BOOK DISCOVERY CALL
+          <FiArrowRight className="btn-icon" />
         </button>
 
         <div className="scheduling-container">
           <h3 className="scheduling-title">
-            Ready to Transform Your Practice?<br />
-            Book Your Discovery Call
+            Ready to Transform Your Practice?
+            <br />Book Your Discovery Call
           </h3>
           <p className="scheduling-subtitle">
-            See OmniDent.ai in action. Get a personalized demo and learn<br />
-            how we can revolutionize your patient experience.
+            See OmniDent.ai in action. Get a personalized demo and learn
+            <br />how we can revolutionize your patient experience.
           </p>
           
           <div className="calendar-widget">
-            <iframe 
-              class="cal-embed" 
-              name="cal-embed=omnident-discovery" 
-              title="Book a call" 
-              data-cal-link="omnident.ai/omnident-discovery" 
-              allow="payment" 
-              src="https://app.cal.com/omnident.ai/omnident-discovery/embed?embed=omnident-discovery&layout=month_view&theme=dark&embedType=inline&overlayCalendar=true" 
-              style={{
-                height: '555px',
-                width: '100%',
-              }}
-            ></iframe>
+            <div className="calendar-header">
+              <FiCalendar className="calendar-icon" />
+              <span>Select Your Preferred Time</span>
+            </div>
+            <div 
+              style={{ 
+                width: '100%', 
+                height: '555px', 
+                overflow: 'auto',
+                borderRadius: '12px',
+                background: 'rgba(10, 15, 28, 0.5)'
+              }} 
+              id="my-cal-inline-omnident-discovery"
+            />
+          </div>
+        </div>
+        
+        {/* Trust indicators */}
+        <div className="trust-indicators">
+          <div className="trust-item">
+            <div className="trust-number">500+</div>
+            <div className="trust-label">Practices Transformed</div>
+          </div>
+          <div className="trust-divider"></div>
+          <div className="trust-item">
+            <div className="trust-number">60%</div>
+            <div className="trust-label">Revenue Increase</div>
+          </div>
+          <div className="trust-divider"></div>
+          <div className="trust-item">
+            <div className="trust-number">24/7</div>
+            <div className="trust-label">AI Support</div>
           </div>
         </div>
       </div>

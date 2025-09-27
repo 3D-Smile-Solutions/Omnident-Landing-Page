@@ -4,6 +4,8 @@
   position: relative;
   /* Add extra space for the scroll animation */
   height: 200vh;
+  background: linear-gradient(0deg, #123646 0%, #0A0F1C 100%);
+
 }
 
 .cards-stack-container {
