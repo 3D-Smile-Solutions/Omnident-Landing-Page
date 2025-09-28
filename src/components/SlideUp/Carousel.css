@@ -19,7 +19,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  border: 1px solid #555;
   border-radius: calc(var(--outer-r) - var(--p-distance));
   background: linear-gradient(135deg, rgba(42, 63, 95, 0.3), rgba(30, 42, 58, 0.3));
 
@@ -129,4 +128,15 @@
 
 .carousel-indicator.inactive {
   background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .carousel-item-title {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  .carousel-item-description {
+    font-size: 18px;
+  }
 }

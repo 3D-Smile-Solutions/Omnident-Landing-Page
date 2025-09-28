@@ -203,6 +203,32 @@ const PillNav = ({
     onMobileMenuClick?.();
   };
 
+  // Handle item click for both desktop and mobile
+  const handleItemClick = (e, item) => {
+    // If item has an onClick handler, use it
+    if (item.onClick) {
+      item.onClick(e);
+    }
+    // Close mobile menu if it's open
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      const menu = mobileMenuRef.current;
+      if (menu) {
+        gsap.to(menu, {
+          opacity: 0,
+          y: 10,
+          scaleY: 1,
+          duration: 0.2,
+          ease,
+          transformOrigin: 'top center',
+          onComplete: () => {
+            gsap.set(menu, { visibility: 'hidden' });
+          }
+        });
+      }
+    }
+  };
+
   const cssVars = {
     ['--base']: baseColor,
     ['--pill-bg']: pillColor,
@@ -236,6 +262,7 @@ const PillNav = ({
                   aria-label={item.ariaLabel || item.label}
                   onMouseEnter={() => handleEnter(i)}
                   onMouseLeave={() => handleLeave(i)}
+                  onClick={(e) => handleItemClick(e, item)}
                 >
                   <span
                     className="hover-circle"
@@ -274,7 +301,7 @@ const PillNav = ({
               <a
                 href={item.href}
                 className={`mobile-menu-link${activeHref === item.href ? ' is-active' : ''}`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleItemClick(e, item)}
               >
                 {item.label}
               </a>

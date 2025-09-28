@@ -1,7 +1,8 @@
 /* FinalCTA.css */
 .final-cta-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #0a0015 0%, #1a0f2e 100%);
+  background: linear-gradient(180deg, #123646 0%, #0A0F1C 100%);
+
   position: relative;
   overflow: hidden;
 }

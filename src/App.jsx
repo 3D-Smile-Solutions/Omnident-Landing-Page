@@ -1,4 +1,3 @@
-// App.js
 import React, { useState } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Hero from './components/Hero/Hero';
@@ -17,17 +16,27 @@ const App = () => {
 
   return (
     <>
-      {/* Main App Content */}
       <div className="omnident-container">
         <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <Hero />
-        <PatientJourney />
-        <Testimonial />
-        <BenefitsCards />
-        <Channels />
-        <Features />
-        <Pricing />
-        <FinalCTA />
+        <div id="patient-journey-section">
+          <PatientJourney />
+        </div>
+        <div id="testimonial-section">
+          <Testimonial />
+        </div>
+        <div id="channels-section">
+          <Channels />
+        </div>
+        <div id="features-section">
+          <Features />
+        </div>
+        <div id="pricing-section">
+          <Pricing />
+        </div>
+        <div id="final-cta-section">
+          <FinalCTA />
+        </div>
         <Footer />
       </div>
     </>

@@ -1,7 +1,7 @@
 /* Pricing.css */
 .pricing-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #123646 0%, #0A0F1C 100%);
+  background: linear-gradient(0deg, #123646 0%, #0A0F1C 100%);
   position: relative;
   overflow: hidden;
 }
@@ -103,6 +103,8 @@
   border-radius: 24px;
   padding: 2px;
   background: linear-gradient(135deg, #06b6d4, #8b5cf6, #ec4899);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: -1;
@@ -189,11 +191,6 @@
   50% {
     transform: translateY(-3px);
   }
-}
-
-/* Remove old pricing-tags styles */
-.pricing-tags {
-  display: none;
 }
 
 .tag {
@@ -454,11 +451,12 @@
 }
 
 .pricing-secondary-btn:hover {
-  background: rgba(132, 0, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   border-color: rgba(132, 0, 255, 0.5);
   color: #c4b5fd;
   transform: translateY(-2px);
 }
+
 
 /* Responsive Design */
 @media (min-width: 768px) {

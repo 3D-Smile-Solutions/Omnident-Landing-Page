@@ -3,6 +3,8 @@ import React from 'react';
 import './PatientJourney.css';
 import PatientJourneyAnimation from '../../assets/PatientJourneyAnimation.mp4';
 import AnimatedContent from '../SlideUp/AnimatedContent';
+import CountUp from '../SlideUp/CountUp';
+
 
 const PatientJourney = () => {
   return (
@@ -24,15 +26,42 @@ const PatientJourney = () => {
         
         <div className="stats-grid">
           <div className="stat-item">
-            <div className="stat-number">60%</div>
+            <div className="stat-number">
+              <CountUp
+                from={0}
+                to={60}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />%
+            </div>
             <div className="stat-label">more bookings</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">40%</div>
+            <div className="stat-number">
+              <CountUp
+                from={0}
+                to={40}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />%
+            </div>
             <div className="stat-label">fewer no-shows</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">15+</div>
+            <div className="stat-number">
+              <CountUp
+                from={0}
+                to={15}
+                separator=","
+                direction="up"
+                duration={1}
+                className="count-up-text"
+              />+
+            </div>
             <div className="stat-label">hours saved per week</div>
           </div>
         </div>

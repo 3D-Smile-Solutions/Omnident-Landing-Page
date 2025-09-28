@@ -2,6 +2,8 @@
 import React, { useEffect } from 'react';
 import { FiClock, FiPhone, FiCalendar, FiArrowRight, FiCheckCircle } from 'react-icons/fi';
 import './FinalCTA.css';
+import CountUp  from '../SlideUp/CountUp';
+
 
 const FinalCTA = () => {
   useEffect(() => {
@@ -113,17 +115,51 @@ const FinalCTA = () => {
         {/* Trust indicators */}
         <div className="trust-indicators">
           <div className="trust-item">
-            <div className="trust-number">500+</div>
+            <div className="trust-number">
+                            <CountUp
+                              from={0}
+                              to={500}
+                              separator=","
+                              direction="up"
+                              duration={1}
+                              className="count-up-text"
+                            />+
+            </div>
             <div className="trust-label">Practices Transformed</div>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
-            <div className="trust-number">60%</div>
+            <div className="trust-number">
+                            <CountUp
+                              from={0}
+                              to={60}
+                              separator=","
+                              direction="up"
+                              duration={1}
+                              className="count-up-text"
+                            />%
+            </div>
             <div className="trust-label">Revenue Increase</div>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
-            <div className="trust-number">24/7</div>
+            <div className="trust-number">
+                            <CountUp
+                              from={0}
+                              to={24}
+                              separator=","
+                              direction="up"
+                              duration={1}
+                              className="count-up-text"
+                            />/
+                                          <CountUp
+                                            from={0}
+                                            to={7}
+                                            separator=","
+                                            direction="up"
+                                            duration={1}
+                                            className="count-up-text"
+                                          />%</div>
             <div className="trust-label">AI Support</div>
           </div>
         </div>

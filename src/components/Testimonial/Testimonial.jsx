@@ -65,8 +65,27 @@ const useResponsiveCarousel = () => {
 };
 
 const Testimonial = () => {
-
   const { width, height } = useResponsiveCarousel();
+
+  const handleScrollToFinalCTA = () => {
+    const finalCTASection = document.getElementById('final-cta-section');
+    if (finalCTASection) {
+      finalCTASection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  const handleScrollToTestimonials = () => {
+    const testimonialSection = document.getElementById('testimonial-section');
+    if (testimonialSection) {
+      testimonialSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   return (
     <section className="testimonial-section">
@@ -99,6 +118,60 @@ const Testimonial = () => {
           <p className="integrations-subtitle">Connect with 50+ practice management systems in under 15 minutes. No technical expertise required.</p>
           
           <div className="integrations-logos">
+            <div className="logos">
+              <div className="logo_items">
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+              </div>
+              <div className="logo_items">
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+                <img src={Dentrix} alt="Dentrix"/>
+                <img src={Denticon} alt="Denticon"/>
+                <img src={CurveDental} alt="Curve Dental"/>
+                <img src={Eaglesoft} alt="Eaglesoft"/>
+                <img src={Fuse} alt="Fuse"/>
+                <img src={OpenDental} alt="Open Dental"/>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -108,8 +181,18 @@ const Testimonial = () => {
             See how OmniDent AI can automate your practice operations and boost patient satisfaction.
           </p>
           <div className="cta-box-buttons">
-            <button className="cta-primary-btn">Get A Demo</button>
-            <button className="cta-secondary-btn">View Testimonials</button>
+            <button 
+              className="cta-primary-btn"
+              onClick={handleScrollToFinalCTA}
+            >
+              Get A Demo
+            </button>
+            <button 
+              className="cta-secondary-btn"
+              onClick={handleScrollToTestimonials}
+            >
+              View Testimonials
+            </button>
           </div>
         </div>
       </div>

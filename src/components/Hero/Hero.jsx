@@ -1,10 +1,20 @@
 // Hero.js
 import React from 'react';
 import { FiCheckCircle, FiArrowRight } from 'react-icons/fi';
-import heroVideo from '../../assets/HeroBgAnimation.mp4'; // Ensure you have a video file in the specified path
+import heroVideo from '../../assets/HeroBgAnimation.mp4';
 import './Hero.css';
 
 const Hero = () => {
+  const handleScrollToFinalCTA = () => {
+    const finalCTASection = document.getElementById('final-cta-section');
+    if (finalCTASection) {
+      finalCTASection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <section className="hero-section">
       {/* Full screen background video */}
@@ -37,7 +47,10 @@ const Hero = () => {
             without lifting your finger.
           </p>
           <div className="hero-cta-container">
-            <button className="hero-cta-btn">
+            <button 
+              className="hero-cta-btn"
+              onClick={handleScrollToFinalCTA}
+            >
               <span>Book Your Demo → See ROI Potential</span>
             </button>
           </div>
