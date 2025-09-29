@@ -395,21 +395,30 @@
 }
 
 .logo_items {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   animation: 35s slides infinite linear;
+  gap: 60px;
 }
 
 .logos:hover .logo_items {
   animation-play-state: paused;
 }
 
+/* Updated logo styles for uniform sizing */
 .logo_items img {
-  height: 200px;
-  margin: 0 20px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 160px;
+  object-fit: contain;
+  margin: 0 30px;
   filter: var(--test-logo-filter);
   opacity: 0.7;
   transition: all 0.3s ease;
   cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .logo_items img:hover {
@@ -445,6 +454,13 @@
   }
 }
 
+@media (max-width: 768px) {
+  .logo_items img {
+    height: 120px;
+    margin: 0 20px;
+  }
+}
+
 @media (max-width: 640px) {
   .testimonial-cta-box:hover {
     transform: translateY(-5px) scale(1);
@@ -456,6 +472,11 @@
   
   .integrations-subtitle {
     width: 80%;
+  }
+  
+  .logo_items img {
+    height: 100px;
+    margin: 0 15px;
   }
 }
 
