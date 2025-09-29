@@ -2,9 +2,9 @@
 
 /* Define component-specific theme variables */
 :root[data-theme="dark"] {
-  --hero-overlay-start: rgba(10, 0, 21, 0.6);
-  --hero-overlay-mid: rgba(10, 0, 21, 0.7);
-  --hero-overlay-end: rgba(10, 0, 21, 0.7);
+  --hero-overlay-start: #0a0f1c80;
+  --hero-overlay-mid:#0a0f1c93;
+  --hero-overlay-end: #0a0f1c;
   --hero-overlay-mobile-start: rgba(10, 0, 21, 0.95);
   --hero-overlay-mobile-mid: rgba(10, 0, 21, 0.85);
   --hero-overlay-mobile-end: rgba(10, 0, 21, 0.95);
@@ -24,9 +24,9 @@
 }
 
 :root[data-theme="light"] {
-  --hero-overlay-start: rgba(146, 146, 146, 0.479);
-  --hero-overlay-mid: rgba(136, 136, 136, 0.384);
-  --hero-overlay-end: rgba(88, 88, 88, 0.24);
+  --hero-overlay-start: #b1b1b160;
+  --hero-overlay-mid: #b1b1b163;
+  --hero-overlay-end: #b1b1b1;
   --hero-overlay-mobile-start: rgba(255, 255, 255, 0.95);
   --hero-overlay-mobile-mid: rgba(248, 250, 252, 0.9);
   --hero-overlay-mobile-end: rgba(255, 255, 255, 0.95);

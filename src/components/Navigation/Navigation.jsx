@@ -56,19 +56,38 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
           { label: 'Results', href: '#results', onClick: (e) => handleNavClick(e, 'testimonial-section') },
           { label: 'Pricing', href: '#pricing', onClick: (e) => handleNavClick(e, 'pricing-section') },
           { label: 'SmileNexus', href: 'https://smilenexus.vercel.app/', onClick: (e) => handleExternalLink(e, 'https://smilenexus.vercel.app/') },
-          { 
-            label: theme === 'dark' ? 'Light Mode' : 'Dark Mode', 
-            onClick: toggleTheme 
-          },
         ]}
         activeHref="/"
         className="custom-nav"
         ease="power2.easeOut"
-        baseColor={theme === 'dark' ? '#000000ff' : '#ffffff'}
-        pillColor={theme === 'dark' ? '#2c3c53ff' : '#f0f0f0'}
+        baseColor={theme === 'dark' ? '#000000ff' : '#e2e2e2ff'}
+        pillColor={theme === 'dark' ? '#2c3c53ff' : '#cacacaff'}
         hoveredPillTextColor={theme === 'dark' ? '#ffffff' : '#000000'}
         pillTextColor={theme === 'dark' ? '#ccccccff' : '#333333'}
       />
+      <span className="theme__toggle-wrap">
+        <input 
+          id="theme" 
+          className="theme__toggle" 
+          type="checkbox" 
+          role="switch" 
+          name="theme" 
+          checked={theme === 'dark'}
+          onChange={toggleTheme}
+        />
+        <span className="theme__fill"></span>
+        <span className="theme__icon">
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+          <span className="theme__icon-part"></span>
+        </span>
+      </span>
     </div>
   );
 };
