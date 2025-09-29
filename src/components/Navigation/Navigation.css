@@ -439,9 +439,18 @@
 
 .theme__toggle-wrap {
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  top: 1.5rem;
+  right: 1.5rem;
   z-index: 1000;
+}
+
+@media (max-width: 1028px) {
+  .theme__toggle-wrap {
+    position: fixed;
+    top: 48rem;
+    left: 1.5rem;
+    z-index: 1000;
+  }
 }
 
 /* Responsive sizing for theme toggle */
