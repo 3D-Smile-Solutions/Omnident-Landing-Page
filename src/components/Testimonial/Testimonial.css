@@ -1,8 +1,67 @@
 /* Testimonial.css */
+
+/* Define component-specific theme variables */
+:root[data-theme="dark"] {
+  --test-bg-gradient-start: #123646;
+  --test-bg-gradient-end: #0A0F1C;
+  --test-title-color: #ffffff;
+  --test-subtitle-color: #cbd5e0;
+  --test-author-name: #06b6d4;
+  --test-author-title: #9ca3af;
+  --test-star-color: #fbbf24;
+  --test-integration-hover: #06b6d4;
+  --test-cta-bg: linear-gradient(135deg, rgba(42, 63, 95, 0.3), rgba(30, 42, 58, 0.3));
+  --test-cta-hover-bg: linear-gradient(135deg, rgba(42, 63, 95, 0.5), rgba(30, 42, 58, 0.5));
+  --test-cta-border: rgba(6, 182, 212, 0.2);
+  --test-cta-title-hover: #06b6d4;
+  --test-cta-subtitle: #cbd5e0;
+  --test-cta-subtitle-hover: #e2e8f0;
+  --test-primary-btn-bg: linear-gradient(135deg, #1a2332 0%, #243447 100%);
+  --test-primary-btn-color: #06b6d4;
+  --test-primary-btn-hover-bg: linear-gradient(135deg, #06b6d4, #0891b2);
+  --test-secondary-btn-border: rgba(255, 255, 255, 0.3);
+  --test-secondary-btn-hover-bg: rgba(255, 255, 255, 0.05);
+  --test-secondary-btn-hover-border: rgba(255, 255, 255, 0.5);
+  --test-logo-gradient-left: linear-gradient(to left, rgba(10, 15, 28, 0), rgb(10, 15, 28));
+  --test-logo-gradient-right: linear-gradient(to right, rgba(10, 15, 28, 0), rgb(10, 15, 28));
+  --test-logo-filter: grayscale(100%) brightness(0.8);
+  --test-logo-hover-filter: grayscale(0%) brightness(1);
+}
+
+:root[data-theme="light"] {
+  --test-bg-gradient-start: #e6f7ff;
+  --test-bg-gradient-end: #b1b1b1;
+  --test-title-color: #1a2332;
+  --test-subtitle-color: #4a5568;
+  --test-author-name: #0891b2;
+  --test-author-title: #6b7280;
+  --test-star-color: #f59e0b;
+  --test-integration-hover: #0891b2;
+  --test-cta-bg: linear-gradient(135deg, rgba(226, 232, 240, 0.5), rgba(241, 245, 249, 0.5));
+  --test-cta-hover-bg: linear-gradient(135deg, rgba(226, 232, 240, 0.7), rgba(241, 245, 249, 0.7));
+  --test-cta-border: rgba(8, 145, 178, 0.3);
+  --test-cta-title-hover: #0891b2;
+  --test-cta-subtitle: #4a5568;
+  --test-cta-subtitle-hover: #2d3748;
+  --test-primary-btn-bg: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+  --test-primary-btn-color: #ffffff;
+  --test-primary-btn-hover-bg: linear-gradient(135deg, #0e7490, #0891b2);
+  --test-secondary-btn-border: rgba(0, 0, 0, 0.2);
+  --test-secondary-btn-hover-bg: rgba(0, 0, 0, 0.05);
+  --test-secondary-btn-hover-border: rgba(0, 0, 0, 0.4);
+  --test-logo-gradient-left: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  --test-logo-gradient-right: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255));
+  --test-logo-filter: grayscale(100%) brightness(0.3);
+  --test-logo-hover-filter: grayscale(0%) brightness(0.8);
+}
+
 .testimonial-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #123646 0%, #0A0F1C 100%);
-
+  background: linear-gradient(180deg, 
+    var(--test-bg-gradient-start) 0%, 
+    var(--test-bg-gradient-end) 100%
+  );
+  transition: background 0.3s ease;
 }
 
 .testimonial-container {
@@ -20,19 +79,13 @@
   align-items: center;
 }
 
-@media (min-width: 1024px) {
-  .quote-mark-left,
-  .quote-mark-right {
-    font-size: 300px;
-  }
-}
-
 .quote-content {
   position: relative;
   z-index: 10;
   max-width: 48rem;
   margin: 0 auto;
 }
+
 .stars-container {
   display: flex;
   justify-content: center;
@@ -42,8 +95,9 @@
 .star-icon {
   width: 1.5rem;
   height: 1.5rem;
-  color: #fbbf24;
+  color: var(--test-star-color);
   fill: currentColor;
+  transition: color 0.3s ease;
 }
 
 .quote-text {
@@ -51,12 +105,8 @@
   font-weight: 500;
   margin-bottom: 2rem;
   line-height: 1.5;
-}
-
-@media (min-width: 1024px) {
-  .quote-text {
-    font-size: 1.875rem;
-  }
+  color: var(--test-title-color);
+  transition: color 0.3s ease;
 }
 
 .quote-author {
@@ -65,11 +115,13 @@
 
 .author-name {
   font-weight: 600;
-  color: #06b6d4;
+  color: var(--test-author-name);
+  transition: color 0.3s ease;
 }
 
 .author-title {
-  color: #9ca3af;
+  color: var(--test-author-title);
+  transition: color 0.3s ease;
 }
 
 .integrations-container {
@@ -83,13 +135,16 @@
 .integrations-title {
   font-size: 2rem;
   font-weight: 600;
+  color: var(--test-title-color);
+  transition: color 0.3s ease;
 }
 
 .integrations-subtitle {
   font-weight: 800;
-  color: #cbd5e0;
+  color: var(--test-subtitle-color);
   width: 550px;
   margin-bottom: 3rem;
+  transition: color 0.3s ease;
 }
 
 .integrations-logos {
@@ -106,26 +161,25 @@
   font-weight: bold;
   transition: color 0.3s;
   cursor: pointer;
+  color: var(--test-title-color);
 }
 
 .integration-logo:hover {
-  color: #06b6d4;
+  color: var(--test-integration-hover);
 }
 
 /* Enhanced Testimonial CTA Box Styles */
-
 .testimonial-cta-box {
   margin-top: 4rem;
-  background: linear-gradient(135deg, rgba(42, 63, 95, 0.3), rgba(30, 42, 58, 0.3));
+  background: var(--test-cta-bg);
   border-radius: 1rem;
   padding: 3rem;
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--test-cta-border);
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Animated gradient background on hover */
 .testimonial-cta-box::before {
   content: '';
   position: absolute;
@@ -142,13 +196,6 @@
   animation: gradient-shift 4s ease infinite;
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Inner glow effect */
 .testimonial-cta-box::after {
   content: '';
   position: absolute;
@@ -169,7 +216,7 @@
     0 10px 30px rgba(6, 182, 212, 0.3),
     0 20px 60px rgba(139, 92, 246, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(42, 63, 95, 0.5), rgba(30, 42, 58, 0.5));
+  background: var(--test-cta-hover-bg);
 }
 
 .testimonial-cta-box:hover::before {
@@ -180,33 +227,32 @@
   opacity: 1;
 }
 
-/* Enhanced title and subtitle animations */
 .cta-box-title {
   font-size: 1.875rem;
   font-weight: bold;
   margin-bottom: 1rem;
   transition: all 0.3s ease;
   position: relative;
+  color: var(--test-title-color);
 }
 
 .testimonial-cta-box:hover .cta-box-title {
-  color: #06b6d4;
+  color: var(--test-cta-title-hover);
   transform: translateX(5px);
 }
 
 .cta-box-subtitle {
   font-size: 1.25rem;
-  color: #cbd5e0;
+  color: var(--test-cta-subtitle);
   margin-bottom: 2rem;
   transition: all 0.3s ease 0.05s;
 }
 
 .testimonial-cta-box:hover .cta-box-subtitle {
-  color: #e2e8f0;
+  color: var(--test-cta-subtitle-hover);
   transform: translateX(3px);
 }
 
-/* Enhanced button container */
 .cta-box-buttons {
   display: flex;
   flex-direction: column;
@@ -219,20 +265,14 @@
   transform: translateX(2px);
 }
 
-@media (min-width: 640px) {
-  .cta-box-buttons {
-    flex-direction: row;
-  }
-}
-
-/* Enhanced primary button with pulse effect */
+/* Primary button styles */
 .cta-primary-btn {
   padding: 0.75rem 2rem;
-  background: linear-gradient(135deg, #1a2332 0%, #243447 100%);
-  color: #06b6d4;
+  background: var(--test-primary-btn-bg);
+  color: var(--test-primary-btn-color);
   border-radius: 9999px;
   font-weight: 600;
-  border: 1px solid #06b6d4;
+  border: 1px solid currentColor;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -253,10 +293,11 @@
 }
 
 .cta-primary-btn:hover {
-  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  background: var(--test-primary-btn-hover-bg);
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(6, 182, 212, 0.4);
+  border-color: transparent;
 }
 
 .cta-primary-btn:hover::before {
@@ -264,28 +305,14 @@
   height: 300px;
 }
 
-/* Add pulse animation to primary button on parent hover */
-.testimonial-cta-box:hover .cta-primary-btn {
-  animation: gentle-pulse 2s ease-in-out infinite;
-}
-
-@keyframes gentle-pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 20px 5px rgba(6, 182, 212, 0.2);
-  }
-}
-
-/* Enhanced secondary button */
+/* Secondary button styles */
 .cta-secondary-btn {
   padding: 0.75rem 2rem;
   background: transparent;
-  color: white;
+  color: var(--test-title-color);
   border-radius: 9999px;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--test-secondary-btn-border);
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -304,77 +331,39 @@
 }
 
 .cta-secondary-btn:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--test-secondary-btn-hover-bg);
+  border-color: var(--test-secondary-btn-hover-border);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .cta-secondary-btn:hover::before {
   left: 100%;
 }
 
-/* Floating particles effect (optional) */
-@keyframes float-up {
-  0% {
-    transform: translateY(0) translateX(0) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  100% {
-    transform: translateY(-100px) translateX(50px) scale(0.5);
-    opacity: 0;
-  }
-}
-
-.testimonial-cta-box:hover {
-  position: relative;
-}
-
-/* Add smooth transition for mobile */
-@media (max-width: 640px) {
-  .testimonial-cta-box:hover {
-    transform: translateY(-5px) scale(1);
-  }
-  
-  .cta-box-buttons {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 640px) {
-  .integrations-logos {
-    gap: 1.5rem;
-  }
-  .integrations-subtitle{
-    width: 80%;
-  }
-}
-
-.PJTitle{
+.PJTitle {
   text-align: center;
   font-size: 3rem;
   margin-top: -5rem;
+  color: var(--test-title-color);
+  transition: color 0.3s ease;
 }
-.PJSubtitle{
+
+.PJSubtitle {
   text-align: center;
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--test-subtitle-color);
+  transition: color 0.3s ease;
 }
 
-/* Updated CSS for seamless infinite scroll */
-
-/* Updated CSS for seamless infinite scroll */
-
+/* Logo scroll animation styles */
 @keyframes slides {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-50%); /* Changed from -100% to -50% */
+    transform: translateX(-50%);
   }
 }
 
@@ -397,12 +386,12 @@
 
 .logos:before {
   left: 0;
-  background: linear-gradient(to left, rgba(255,255,255,0), rgb(255, 255, 255));
+  background: var(--test-logo-gradient-left);
 }
 
 .logos:after {
   right: 0;
-  background: linear-gradient(to right, rgba(255,255,255,0), rgb(255, 255, 255));
+  background: var(--test-logo-gradient-right);
 }
 
 .logo_items {
@@ -416,16 +405,62 @@
 
 .logo_items img {
   height: 200px;
-  margin: 0 20px; /* Add some spacing between logos */
-  filter: grayscale(100%);
+  margin: 0 20px;
+  filter: var(--test-logo-filter);
   opacity: 0.7;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .logo_items img:hover {
-  filter: grayscale(0%);
+  filter: var(--test-logo-hover-filter);
   opacity: 1;
-  transform: scale(1.05); /* Optional: slight scale on hover */
+  transform: scale(1.05);
 }
 
+/* Animation keyframes */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 5px rgba(6, 182, 212, 0.2);
+  }
+}
+
+.testimonial-cta-box:hover .cta-primary-btn {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) {
+  .cta-box-buttons {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonial-cta-box:hover {
+    transform: translateY(-5px) scale(1);
+  }
+  
+  .integrations-logos {
+    gap: 1.5rem;
+  }
+  
+  .integrations-subtitle {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quote-text {
+    font-size: 1.875rem;
+  }
+}

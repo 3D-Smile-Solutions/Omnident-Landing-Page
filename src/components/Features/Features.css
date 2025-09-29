@@ -1,8 +1,39 @@
 /* Features.css */
+
+/* Define component-specific theme variables */
+:root[data-theme="dark"] {
+  --feat-bg-gradient-start: #123646;
+  --feat-bg-gradient-end: #0A0F1C;
+  --feat-title-color: #ffffff;
+  --feat-subtitle-color: #cbd5e0;
+  --feat-card-bg: #1e2a3a;
+  --feat-card-border: #4b5563;
+  --feat-card-border-hover: rgba(6, 182, 212, 0.4);
+  --feat-card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --feat-description-color: #cbd5e0;
+  --feat-list-color: #9ca3af;
+}
+
+:root[data-theme="light"] {
+  --feat-bg-gradient-start: #e6f7ff;
+  --feat-bg-gradient-end: #b1b1b1;
+  --feat-title-color: #1a2332;
+  --feat-subtitle-color: #4a5568;
+  --feat-card-bg: #ffffff;
+  --feat-card-border: #e2e8f0;
+  --feat-card-border-hover: rgba(8, 145, 178, 0.4);
+  --feat-card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+  --feat-description-color: #4a5568;
+  --feat-list-color: #6b7280;
+}
+
 .features-section {
   padding: 6rem 0;
-  background: linear-gradient(180deg, #123646 0%, #0A0F1C 100%);
-
+  background: linear-gradient(180deg, 
+    var(--feat-bg-gradient-start) 0%, 
+    var(--feat-bg-gradient-end) 100%
+  );
+  transition: background 0.3s ease;
 }
 
 .features-grid {
@@ -19,23 +50,26 @@
 }
 
 .feature-card {
-  background-color: #1e2a3a;
+  background-color: var(--feat-card-bg);
   border-radius: 1rem;
   padding: 2rem;
-  border: 1px solid #4b5563;
+  border: 1px solid var(--feat-card-border);
   transition: all 0.3s;
 }
-.features-flex{
+
+.features-flex {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .feature-card:hover {
-  border-color: rgba(6, 182, 212, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: var(--feat-card-border-hover);
+  box-shadow: var(--feat-card-shadow-hover);
   transform: translateY(-4px);
 }
 
+/* Feature icon boxes with theme support */
 .feature-icon-box {
   width: 3rem;
   height: 3rem;
@@ -125,17 +159,21 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.75rem;
+  color: var(--feat-title-color);
+  transition: color 0.3s ease;
 }
 
 .feature-description {
-  color: #cbd5e0;
+  color: var(--feat-description-color);
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
 }
 
 .feature-list {
   list-style: none;
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: var(--feat-list-color);
+  transition: color 0.3s ease;
 }
 
 .feature-list li {
@@ -176,11 +214,12 @@
 }
 
 .central-stat-label {
-  color: #cbd5e0;
+  color: var(--feat-description-color);
   margin-top: 0.5rem;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  transition: color 0.3s ease;
 }
 
 .features-grid-secondary {

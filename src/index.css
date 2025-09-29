@@ -260,3 +260,87 @@ body {
     pointer-events: none;
   }
 }
+
+/* Light and Dark Mode Variables */
+:root[data-theme="dark"] {
+  --bg-primary: #1a2332;
+  --bg-secondary: #0a0015;
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e0;
+  --nav-base: #000000;
+  --nav-pill: #2c3c53;
+  --nav-pill-text: #cccccc;
+  --nav-hover-text: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a2332;
+  --text-secondary: #4a5568;
+  --nav-base: #ffffff;
+  --nav-pill: #f0f0f0;
+  --nav-pill-text: #333333;
+  --nav-hover-text: #000000;
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Apply theme variables to your existing styles */
+.omnident-container {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--bg-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-subtitle {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+}
+
+/* Update Navigation.css with theme variables */
+.pill-nav {
+  --base: var(--nav-base);
+  --pill-bg: var(--nav-pill);
+  --pill-text: var(--nav-pill-text);
+  --hover-text: var(--nav-hover-text);
+}
+
+/* Add smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Adjust light rays for light mode */
+:root[data-theme="light"] .global-lightrays-wrapper {
+  opacity: 0.1;
+  filter: invert(1);
+}
+
+/* Adjust gradient overlays for light mode */
+:root[data-theme="light"] .shadow-glow-cyan {
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+:root[data-theme="light"] .shadow-glow-teal {
+  box-shadow: 0 0 30px rgba(20, 184, 166, 0.2);
+}
+
+:root[data-theme="light"] .shadow-glow-indigo {
+  box-shadow: 0 0 30px rgba(129, 140, 248, 0.2);
+}

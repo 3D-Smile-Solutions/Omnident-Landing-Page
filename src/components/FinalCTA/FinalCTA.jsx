@@ -159,7 +159,7 @@ const FinalCTA = () => {
                                             direction="up"
                                             duration={1}
                                             className="count-up-text"
-                                          />%</div>
+                                          /></div>
             <div className="trust-label">AI Support</div>
           </div>
         </div>
